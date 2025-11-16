@@ -1,1 +1,1 @@
-# Repositório para o bootcamp da Generation JavaScript Recife
+# Repositório para o bootcamp da Generation JavaScript

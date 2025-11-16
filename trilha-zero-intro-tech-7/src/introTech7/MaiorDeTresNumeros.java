@@ -18,4 +18,5 @@ public class MaiorDeTresNumeros {
         Integer maiorNumero = Collections.max(numeros);
         System.out.println("O maior numero eh: " + maiorNumero);
     }
+
 }

@@ -6,6 +6,7 @@ import java.util.List;
 public class MenorNumero {
     static List<Integer> numeros = List.of(-1, 3, 4, 2, 6);
     static Integer menorNumero = numeros.getFirst();
+
     static void main() {
         for (Integer numero : numeros) {
             if (numero < menorNumero) {
