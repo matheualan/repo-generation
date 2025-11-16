@@ -4,5 +4,3 @@
 
 ### trilha-zero-intro-tech-7 
   Contém exercícios realizados durante a trilha zero
-
-# <span style="color: blue;">Testando</span>
