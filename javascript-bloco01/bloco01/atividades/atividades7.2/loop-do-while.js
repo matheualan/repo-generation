@@ -1,6 +1,5 @@
 const readline = require("readline-sync");
 
-// let count;
 let sum = 0;
 let n;
 
