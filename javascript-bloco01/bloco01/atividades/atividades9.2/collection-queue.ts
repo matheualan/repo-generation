@@ -1,8 +1,8 @@
 import readline = require("readline-sync");
 import { Queue } from "./Queue";
 
-const queue = new Queue<string>;
 let option;
+const queue = new Queue<string>;
 
 do {
     console.log("========= MENU ==========");
