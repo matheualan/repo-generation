@@ -2,7 +2,7 @@ const readline = require("readline-sync");
 
 let vetor = [2, 5, 1, 3, 4, 9, 7, 8, 10, 6];
 
-console.log("Índices:");
+console.log("Indices:");
 for (let i = 0; i < vetor.length; i++) {
     process.stdout.write(i + " ");
 }
@@ -25,7 +25,7 @@ for (let i = 0; i < vetor.length; i++) {
     }
 }
 if (posicao !== -1) {
-    console.log(`\nO número ${numero} está localizado na posição: ${posicao}`);
+    console.log(`\nO numero ${numero} esta localizado na posicao: ${posicao}`);
 } else {
-    console.log(`\nO número ${numero} não foi encontrado!`);
+    console.log(`\nO numero ${numero} nao foi encontrado!`);
 }
