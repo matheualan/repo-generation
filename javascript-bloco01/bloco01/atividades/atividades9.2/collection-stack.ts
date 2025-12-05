@@ -35,7 +35,6 @@ do {
                 stack.pop();
                 break;
             }
-            break;
         case 0:
             console.log("Programa finalizado!");
             break;
