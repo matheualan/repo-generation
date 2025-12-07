@@ -20,8 +20,7 @@ export function main() {
         console.log(chalk.green("            7 - Depositar                            "));
         console.log(chalk.green("            8 - Transferir valores entre Contas      "));
         console.log(chalk.red("            9 - Sair                                 "));
-        console.log("                                                     ");
-        console.log(chalk.yellow("*****************************************************\n"));
+        console.log(chalk.yellow("\n*****************************************************\n"));
 
         option = readline.questionInt(chalk.yellow("Entre com a opcao desejada: "));
 
