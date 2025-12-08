@@ -54,8 +54,7 @@ export class Account {
         this.balance = balance;
     }
 
-
-    public sacar(value: number): boolean {
+    public withdraw(value: number): boolean {
         if (this.balance < value) {
             console.log("\nSaldo insuficiente!");
             return false;
@@ -65,11 +64,11 @@ export class Account {
         return true;
     }
 
-    public depositar(value: number): void {
+    public deposit(value: number): void {
         this.balance += value;
     }
 
-    public visualizar(): void {
+    public view(): void {
         let type: string = "";
 
         switch (this._accountType) {
