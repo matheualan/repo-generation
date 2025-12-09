@@ -8,14 +8,6 @@ export function main() {
 
     let option: number;
 
-    // Objeto da Classe Conta (Teste)
-    const account: Account = new Account(1, 123, 1, "Adriana", 10000);
-    account.view();
-    account.withdraw(10500);
-    account.view();
-    account.deposit(5000);
-    account.view();
-
    // Objeto da Classe ContaCorrente (Teste)
     const checkingAccount: CheckingAccount = new CheckingAccount(2, 123, 1, "Mariana", 15000, 1000);
     checkingAccount.view();
