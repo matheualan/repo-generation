@@ -4,14 +4,14 @@ export class Account {
     private _agency: number;
     private _accountType: number;
     private _starter: string;
-    private balance: number;
+    private _balance: number;
 
     constructor(accountNumber: number, agency: number, accountType: number, starter: string, balance: number) {
         this._accountNumber = accountNumber;
         this._agency = agency;
         this._accountType = accountType;
         this._starter = starter;
-        this.balance = balance;
+        this._balance = balance;
     }
 
     public get accountNumber(): number {
@@ -46,26 +46,26 @@ export class Account {
         this._starter = starter;
     }
 
-    public getBalance(): number {
-        return this.balance;
+    public get balance(): number {
+        return this._balance;
     }
 
-    public setBalance(balance: number) {
-        this.balance = balance;
+    public set balance(balance: number) {
+        this._balance = balance;
     }
 
     public withdraw(value: number): boolean {
-        if (this.balance < value) {
+        if (this._balance < value) {
             console.log("\nSaldo insuficiente!");
             return false;
         }
         
-        this.balance -= value;
+        this._balance -= value;
         return true;
     }
 
     public deposit(value: number): void {
-        this.balance += value;
+        this._balance += value;
     }
 
     public view(): void {
@@ -88,9 +88,7 @@ export class Account {
         console.log("Agência: " + this._agency);
         console.log("Tipo da Conta: " + type);
         console.log("Titular: " + this._starter);
-        console.log("Saldo: " + this.balance.toFixed(2));
+        console.log("Saldo: " + this._balance.toFixed(2));
     }
 
-    
- 
 }

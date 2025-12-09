@@ -1,5 +1,4 @@
 import chalk from "chalk";
-// import * as readline from "readline-sync";
 import readline = require("readline-sync");
 
 export function main() {
