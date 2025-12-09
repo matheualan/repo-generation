@@ -1,9 +1,36 @@
+import { SavingsAccount } from './model/SavingsAccount';
 import chalk from "chalk";
 import readline = require("readline-sync");
+import { CheckingAccount } from './model/CheckingAccount';
+import { Account } from './model/Account';
 
 export function main() {
 
     let option: number;
+
+    // Objeto da Classe Conta (Teste)
+    const account: Account = new Account(1, 123, 1, "Adriana", 10000);
+    account.view();
+    account.withdraw(10500);
+    account.view();
+    account.deposit(5000);
+    account.view();
+
+   // Objeto da Classe ContaCorrente (Teste)
+    const checkingAccount: CheckingAccount = new CheckingAccount(2, 123, 1, "Mariana", 15000, 1000);
+    checkingAccount.view();
+    checkingAccount.withdraw(2000);
+    checkingAccount.view();
+    checkingAccount.deposit(1000);
+    checkingAccount.view();
+
+    // Objeto da Classe ContaPoupanca (Teste)
+    const savingsAccount: SavingsAccount = new SavingsAccount(3, 123, 2, "Victor", 1000, 10);
+    savingsAccount.view();
+    savingsAccount.withdraw(200);
+    savingsAccount.view();
+    savingsAccount.deposit(1000);
+    savingsAccount.view();
 
     while (true) {
 
