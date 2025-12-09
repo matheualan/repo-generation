@@ -23,18 +23,19 @@ export class CheckingAccount extends Account {
     }
 
     // sacar
-    public takeOut(value: number): boolean {
+    public withdraw(value: number): boolean {
         if ((this.balance + this._limit) < value) {
             console.log("\nSaldo insuficiente!");
             return false;            
         }
-
+        this.balance -= value;
         return true;
     }
 
-    //visualizar
-    public visualize(): void {
-
+    // visualizar
+    public view(): void {
+        super.view();
+        console.log(`Limite: ${this._limit.toFixed(2)}`);
     }
 
 }

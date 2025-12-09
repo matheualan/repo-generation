@@ -18,4 +18,10 @@ export class SavingsAccount extends Account {
         this._birthday = birthday;
     }
 
+    // visualizar
+    public view(): void {
+        super.view();
+        console.log(`Dia do aniversario: ${this._birthday}`);
+    }
+
 }
