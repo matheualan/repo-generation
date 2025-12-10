@@ -2,7 +2,7 @@ import { Account } from "../model/Account";
 
 export interface AccountRepository {
 
-    findByNumber(num: number): void;
+    findByAccountNumber(num: number): void;
     listAll(): void;
     save(account: Account): void;
     update(account: Account): void;
