@@ -2,11 +2,11 @@ import { Account } from "../model/Account";
 
 export interface AccountRepository {
 
-    findByAccountNumber(num: number): void;
+    findByAccountNumber(accountNumber: number): void;
     listAll(): void;
-    save(account: Account): void;
+    create(account: Account): void;
     update(account: Account): void;
-    delete(num: number): void;
+    delete(accountNumber: number): void;
 
     withdraw(accountNumber: number, value: number): void;
     deposit(accountNumber: number, value: number): void;

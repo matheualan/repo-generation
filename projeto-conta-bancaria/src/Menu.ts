@@ -2,27 +2,33 @@ import { SavingsAccount } from './model/SavingsAccount';
 import chalk from "chalk";
 import readline = require("readline-sync");
 import { CheckingAccount } from './model/CheckingAccount';
+import { AccountService } from './service/AccountService';
 import { Account } from './model/Account';
 
 export function main() {
 
     let option: number;
+    let accountNumber, agency, accountType, balance, limit, birthday: number;
+    let starter: string;
+    const typesAccounts = ['Conta Corrente', 'Conta Poupanca'];
 
-   // Objeto da Classe ContaCorrente (Teste)
-    const checkingAccount: CheckingAccount = new CheckingAccount(2, 123, 1, "Mariana", 15000, 1000);
-    checkingAccount.view();
-    checkingAccount.withdraw(2000);
-    checkingAccount.view();
-    checkingAccount.deposit(1000);
-    checkingAccount.view();
+    let accountService: AccountService = new AccountService();
 
-    // Objeto da Classe ContaPoupanca (Teste)
-    const savingsAccount: SavingsAccount = new SavingsAccount(3, 123, 2, "Victor", 1000, 10);
-    savingsAccount.view();
-    savingsAccount.withdraw(200);
-    savingsAccount.view();
-    savingsAccount.deposit(1000);
-    savingsAccount.view();
+//    // Objeto da Classe ContaCorrente (Teste)
+//     const checkingAccount: CheckingAccount = new CheckingAccount(2, 123, 1, "Mariana", 15000, 1000);
+//     checkingAccount.view();
+//     checkingAccount.withdraw(2000);
+//     checkingAccount.view();
+//     checkingAccount.deposit(1000);
+//     checkingAccount.view();
+
+//     // Objeto da Classe ContaPoupanca (Teste)
+//     const savingsAccount: SavingsAccount = new SavingsAccount(3, 123, 2, "Victor", 1000, 10);
+//     savingsAccount.view();
+//     savingsAccount.withdraw(200);
+//     savingsAccount.view();
+//     savingsAccount.deposit(1000);
+//     savingsAccount.view();
 
     while (true) {
 
@@ -51,18 +57,61 @@ export function main() {
         switch (option) {
             case 1:
                 console.log(chalk.greenBright("\n\nCriar conta\n\n"));
+
+                agency = readline.questionInt("Digite o numero da agencia: ");
+                starter = readline.question("\nDigite o nome do titular da conta: ");
+                accountType = readline.keyInSelect(typesAccounts, "", {cancel: false}) + 1;
+                balance = readline.questionFloat("\nDigite o saldo da conta (R$): ");
+
+                switch (accountType) {
+                    case 1: 
+                        limit = readline.questionFloat("Digite o limite da conta (R$): ");
+                        accountService.create(
+                            new CheckingAccount(
+                                accountService.geranateNumber(),
+                                agency,
+                                accountType,
+                                starter,
+                                balance,
+                                limit)
+                        );
+                        break;
+
+                    case 2:
+                        birthday = readline.questionInt("Digite o dia do aniversario da conta poupanca: ");
+                        accountService.create(
+                            new SavingsAccount(
+                                accountService.geranateNumber(),
+                                agency,
+                                accountType,
+                                starter,
+                                balance,
+                                birthday)
+                        );
+                        break;
+                }
+
                 break;
 
             case 2:
                 console.log(chalk.greenBright("\n\nListar todas as contas\n\n"));
+                accountService.listAll();
                 break;
 
             case 3:
                 console.log(chalk.greenBright("\n\nConsultar dados da conta por número\n\n"));
+                accountNumber = readline.questionInt("Digite o numero da conta: ");
+                accountService.findByAccountNumber(accountNumber);
                 break;
 
             case 4:
                 console.log(chalk.greenBright("\n\nAtualizar dados da conta\n\n"));
+
+                accountNumber = readline.questionInt("Digite o numero da conta: ");
+                let account = accountService.findInArray(accountNumber);
+
+                
+
                 break;
 
             case 5:

@@ -1,18 +1,25 @@
 export abstract class Account {
 
-    private _accountNumber: number;
-    private _agency: number;
-    private _accountType: number;
-    private _starter: string;
-    private _balance: number;
+    // private _accountNumber: number;
+    // private _agency: number;
+    // private _accountType: number;
+    // private _starter: string;
+    // private _balance: number;
 
-    constructor(accountNumber: number, agency: number, accountType: number, starter: string, balance: number) {
-        this._accountNumber = accountNumber;
-        this._agency = agency;
-        this._accountType = accountType;
-        this._starter = starter;
-        this._balance = balance;
-    }
+    // constructor(accountNumber: number, agency: number, accountType: number, starter: string, balance: number) {
+    //     this._accountNumber = accountNumber;
+    //     this._agency = agency;
+    //     this._accountType = accountType;
+    //     this._starter = starter;
+    //     this._balance = balance;
+    // }
+
+    constructor(private _accountNumber: number,
+        private _agency: number,
+        private _accountType: number,
+        private _starter: string,
+        private _balance: number
+    ) {}
 
     public get accountNumber(): number {
         return this._accountNumber;

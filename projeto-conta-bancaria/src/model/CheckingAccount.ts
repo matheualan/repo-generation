@@ -2,16 +2,16 @@ import { Account } from "./Account";
 
 export class CheckingAccount extends Account {
 
-    private _limit: number;
+    // private _limit: number;
 
     constructor(accountNumber: number,
         agency: number,
         accountType: number,
         starter: string,
         balance: number,
-        limit: number) {
+        private _limit: number) {
         super(accountNumber, agency, accountType, starter, balance);
-        this._limit = limit;
+        // this._limit = limit;
     }
 
     public get limit(): number {
