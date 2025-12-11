@@ -110,12 +110,35 @@ export function main() {
                 accountNumber = readline.questionInt("Digite o numero da conta: ");
                 let account = accountService.findInArray(accountNumber);
 
-                
+                if (account != null) {
+                    agency = readline.questionInt("Digite o Número da agência: ");
+                    starter = readline.question("Digite o Nome do Titular da conta: ");
+                    accountType = account.accountType;
+                    balance = readline.questionFloat("\nDigite o Saldo da conta (R$): ");
+
+                    switch (accountType) {
+                        case 1:
+                            limit = readline.questionFloat("Digite o Limite da Conta (R$): ");
+                            accountService.update(
+                                new CheckingAccount(accountNumber, agency, accountType, starter, balance, limit));
+                            break;
+
+                        case 2:
+                            birthday = readline.questionInt("Digite o Dia do aniversário da Conta Poupança: ");
+                            accountService.update(new SavingsAccount(accountNumber, agency, accountType, starter, balance, birthday));
+                            break;
+                    }
+
+                } else {
+                    console.log(`\nA Conta numero: ${accountNumber} não foi encontrada!`);
+                }
 
                 break;
 
             case 5:
                 console.log(chalk.greenBright("\n\nApagar uma conta\n\n"));
+                accountNumber = readline.questionInt("Digite o numero da Conta: ");
+                accountService.delete(accountNumber);
                 break;
 
             case 6:
