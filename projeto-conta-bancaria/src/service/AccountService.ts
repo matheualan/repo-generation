@@ -30,7 +30,7 @@ export class AccountService implements AccountRepository {
     create(account: Account): void {
         if (account != null) {
             this.accountsList.push(account);
-            console.log(`Conta numero: ${account.accountNumber} criada com sucesso!`);
+            console.log(chalk.green(`Conta numero: ${account.accountNumber} criada com sucesso!`));
             return;
         }
         console.log(chalk.red("ERRO! Tente novamente!"));
@@ -41,9 +41,9 @@ export class AccountService implements AccountRepository {
 
         if (findAccount != null) {
             this.accountsList[this.accountsList.indexOf(findAccount)] = account;
-            console.log(`\nA Conta numero: ${account.accountNumber} foi atualizada com sucesso!`);
+            console.log(chalk.green(`\nA Conta numero: ${account.accountNumber} foi atualizada com sucesso!`));
         } else {
-            console.log(`\nA Conta numero: " ${account.accountNumber} não foi encontrada!`)
+            console.log(chalk.red(`\nA Conta numero: " ${account.accountNumber} não foi encontrada!`));
         }
     }
 
@@ -52,9 +52,9 @@ export class AccountService implements AccountRepository {
 
         if (findAccount != null) {
             this.accountsList.splice(this.accountsList.indexOf(findAccount), 1);
-        	console.log(`\nA Conta numero: ${accountNumber} foi apagada com sucesso!`);
+        	console.log(chalk.yellow(`\nA Conta numero: ${accountNumber} foi apagada com sucesso!`));
         } else {
-            console.log(`\nA Conta numero: ${accountNumber} não foi encontrada!`)
+            console.log(chalk.red(`\nA Conta numero: ${accountNumber} não foi encontrada!`));
         }
     }
 
@@ -71,7 +71,7 @@ export class AccountService implements AccountRepository {
     }
 
     public geranateNumber(): number {
-        return ++ this.accountNumberSequence;
+        return ++this.accountNumberSequence;
     }
 
     public findInArray(accountNumber: number): Account | null {

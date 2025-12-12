@@ -14,21 +14,21 @@ export function main() {
 
     let accountService: AccountService = new AccountService();
 
-//    // Objeto da Classe ContaCorrente (Teste)
-//     const checkingAccount: CheckingAccount = new CheckingAccount(2, 123, 1, "Mariana", 15000, 1000);
-//     checkingAccount.view();
-//     checkingAccount.withdraw(2000);
-//     checkingAccount.view();
-//     checkingAccount.deposit(1000);
-//     checkingAccount.view();
+    console.log("\nCriar Contas\n");
 
-//     // Objeto da Classe ContaPoupanca (Teste)
-//     const savingsAccount: SavingsAccount = new SavingsAccount(3, 123, 2, "Victor", 1000, 10);
-//     savingsAccount.view();
-//     savingsAccount.withdraw(200);
-//     savingsAccount.view();
-//     savingsAccount.deposit(1000);
-//     savingsAccount.view();
+    let cc1: CheckingAccount = new CheckingAccount(accountService.geranateNumber(), 123, 1, "João da Silva", 1000, 100.0);
+    accountService.create(cc1);
+
+    let cc2: CheckingAccount = new CheckingAccount(accountService.geranateNumber(), 124, 1, "Maria da Silva", 2000, 100.0);
+    accountService.create(cc2);
+
+    let cp1: SavingsAccount = new SavingsAccount(accountService.geranateNumber(), 125, 2, "Mariana dos Santos", 4000, 12);
+    accountService.create(cp1);
+
+    let cp2: SavingsAccount = new SavingsAccount(accountService.geranateNumber(), 125, 2, "Juliana Ramos", 8000, 15);
+    accountService.create(cp2);
+
+    // accountService.listAll();
 
     while (true) {
 
@@ -66,28 +66,14 @@ export function main() {
                 switch (accountType) {
                     case 1: 
                         limit = readline.questionFloat("Digite o limite da conta (R$): ");
-                        accountService.create(
-                            new CheckingAccount(
-                                accountService.geranateNumber(),
-                                agency,
-                                accountType,
-                                starter,
-                                balance,
-                                limit)
-                        );
+                        accountService.create(new CheckingAccount(accountService.geranateNumber(),
+                                agency, accountType, starter, balance, limit));
                         break;
 
                     case 2:
                         birthday = readline.questionInt("Digite o dia do aniversario da conta poupanca: ");
-                        accountService.create(
-                            new SavingsAccount(
-                                accountService.geranateNumber(),
-                                agency,
-                                accountType,
-                                starter,
-                                balance,
-                                birthday)
-                        );
+                        accountService.create(new SavingsAccount(accountService.geranateNumber(),
+                                agency, accountType, starter, balance, birthday));
                         break;
                 }
 
