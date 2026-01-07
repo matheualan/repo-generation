@@ -1,7 +1,10 @@
-CREATE DATABASE db_rh_empresa; 
-DROP DATABASE db_rh;
+CREATE DATABASE db_rh_empresa
+DEFAULT CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
 
 USE db_rh_empresa;
+
+DROP DATABASE db_rh_empresa;
 
 CREATE TABLE tb_collaborators (
 	id BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL,
