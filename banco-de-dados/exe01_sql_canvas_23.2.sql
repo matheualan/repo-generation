@@ -2,6 +2,8 @@ CREATE DATABASE IF NOT EXISTS db_generation_games_online
 DEFAULT CHARACTER SET utf8mb4
 COLLATE utf8mb4_unicode_ci;
 
+DROP DATABASE db_generation_games_online;
+
 USE db_generation_games_online;
 
 CREATE TABLE tb_classes (
@@ -19,7 +21,10 @@ CREATE TABLE tb_characters (
 	sp INT NOT NULL,
 	atq INT NOT NULL,
 	atqm INT NOT NULL,
-	class_id INT NOT NULL
+	class_id INT NOT NULL,
+	CONSTRAINT fk_characters_classes
+        FOREIGN KEY (class_id)
+        REFERENCES tb_classes(id)
 )ENGINE=InnoDB;
 
 INSERT INTO tb_classes (name, type_class, description) 
