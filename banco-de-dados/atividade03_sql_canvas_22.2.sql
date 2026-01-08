@@ -10,11 +10,12 @@ CREATE TABLE tb_students (
 	birth DATE NOT NULL,
 	city VARCHAR(60) NOT NULL,
 	grade DECIMAL (3,1) NOT NULL,
-	registration DATE NOT NULL,
+	date_registration DATE NOT NULL,
+	active BOOLEAN
 	created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 )ENGINE=InnoDB;
 
-INSERT INTO tb_students (name, birth, city, grade, registration)
+INSERT INTO tb_students (name, birth, city, grade, date_registration)
 VALUES
 ('Ana Paula Silva', '2008-04-12', 'Recife', 8.5, '2023-02-01'),
 ('Bruno Henrique Costa', '2007-09-30', 'Olinda', 6.8, '2023-02-01'),
