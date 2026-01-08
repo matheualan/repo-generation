@@ -31,9 +31,9 @@ SELECT * FROM tb_products WHERE price = 5 OR price = 10;
 SELECT * FROM tb_products WHERE price IN (5, 10 ,15);
 SELECT * FROM tb_products WHERE price >= 5 AND price <= 15;
 SELECT * FROM tb_products WHERE price BETWEEN 5 AND 15;
-SELECT * FROM tb_products WHERE name LIKE = "a%";
-SELECT * FROM tb_products WHERE name LIKE = "a%e";
-SELECT * FROM tb_products WHERE name LIKE = "%a%";
+SELECT * FROM tb_products WHERE name LIKE 'a%';
+SELECT * FROM tb_products WHERE name LIKE 'a%e';
+SELECT * FROM tb_products WHERE name LIKE '%a%';
 
 DELETE FROM tb_products WHERE id = 3;
 

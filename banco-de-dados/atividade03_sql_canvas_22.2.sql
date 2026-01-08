@@ -28,12 +28,15 @@ VALUES
 ('Isabela Fernandes Lima', '2009-08-19', 'São Lourenço da Mata', 9.5, '2023-02-01'),
 ('João Victor Araujo', '2008-12-03', 'Recife', 7.8, '2023-02-01');
 
+SELECT * FROM tb_students;
+
 SELECT * FROM tb_students WHERE grade > 7.0;
 SELECT * FROM tb_students WHERE grade < 7.0;
-SELECT * FROM tb_students WHERE grade IN (6.3, 8);
+SELECT * FROM tb_students WHERE city IN ('Recife');
 SELECT * FROM tb_students WHERE grade BETWEEN 4 AND 8;
+SELECT * FROM tb_students ORDER BY name DESC;
 
-SELECT * FROM tb_students;
 SELECT id, name, city FROM tb_students WHERE id = 9;
-UPDATE tb_students SET city = 'Jaboatão' WHERE name = 'Isabela Fernandes Lima';
+
+UPDATE tb_students SET city = 'Recife' WHERE name = 'Isabela Fernandes Lima';
 
